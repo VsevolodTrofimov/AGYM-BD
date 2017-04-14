@@ -1,0 +1,16 @@
+.slide--multiword .word--accent{
+  transition: .5s;
+  width: 100%;
+}
+
+.slide--multiword .wordset {
+  width: 100%;
+  display: flex;
+  flex-direction: row
+}
+
+.slide--multiword .wordset .word--accent:last-child {
+  position: absolute;
+  width: 100%;
+  transform: translateX(100%);
+}

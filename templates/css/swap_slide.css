@@ -1,0 +1,13 @@
+.slide--swap__call {
+  font-size: var(--font-l);
+  margin-right: 20px;
+}
+
+.slide--swap__name {
+  border-radius: 56px;
+  padding: 10px 36px;
+}
+
+.slide--swap .row {
+  margin: var(--font-l) 0;
+}

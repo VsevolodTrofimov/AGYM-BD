@@ -1,0 +1,18 @@
+:root {
+  --bg-color: #FFFFFF/*D9E5D6*/;
+
+  --accent-color: #00A7E1;
+
+  --text-color: #39393A;
+
+  --error-color: #E5446D;
+
+  --font-l: 72px;
+  --font-m: 48px;
+  --font-f: "Fregat";
+}
+
+body {
+  font-family: var(--font-f);
+  color: var(--text-color);
+}

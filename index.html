@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>A Collection of Page Transitions</title>
+		<link rel="stylesheet" type="text/css" href="css/styles.css" />
+		<link rel="stylesheet" type="text/css" href="css/core.css" />
+		<link rel="stylesheet" type="text/css" href="css/animations.css" />
+    <link rel="stylesheet" href="templates/css/shared.css" />
+		<script src="js/modernizr.custom.js"></script>
+    <!-- importing slides -->
+    <link rel="import" href="templates/timer.html" obj="timer">
+    <link rel="import" href="templates/word_slide.html" obj="word_slide">
+    <link rel="import" href="templates/multiword_slide.html" obj="multiword_slide">
+    <link rel="import" href="templates/swap_slide.html" obj="swap_slide">
+    <link rel="import" href="templates/pic_slide.html" obj="pic_slide">
+    <link rel="import" href="templates/www_slide.html" obj="www_slide">
+  </head>
+	<body>
+		<div id="pt-main" class="pt-perspective">
+  		<!-- Your presentation HTML here -->
+			<div class="slide slide--word">
+        <div class="slide--word__word word--accent"> #СДРАГ </div>
+			</div>
+
+
+      <!-- <div class="slide slide--word">
+        <div class="slide--word__word word--accent"> #Поздравления </div>
+      </div> -->
+
+      <span id="word_game_end"></span>
+
+      <div class="slide slide--word">
+        <div class="slide--word__word word--accent"> #ЧГК </div>
+      </div>
+      <span id="www_game_end"></span>
+
+
+      <div class="slide slide--word">
+        <div class="slide--word__word word--accent"> #Универсал </div>
+      </div>
+      <span id="universal_game_end"></span>
+
+
+      <div class="slide slide--word">
+        <div class="slide--word__word word--accent"> #Картинки </div>
+      </div>
+      <span id="pic_game_end"></span>
+
+      <div class="slide slide--word">
+        <div class="slide--word__word word--accent"> #Вкусняхи </div>
+			</div>
+    </div>
+
+		<div class="pt-message">
+			<p>Your browser does not support CSS animations.</p>
+		</div>
+		<script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+		<script>
+    function simulateKeyPress(character) {
+      var e = $.Event('keyup');
+        e.which = character;
+        $(document).trigger(e);
+    }
+
+			var socket = io();
+			socket.on('act', function(command){
+				if(command=="forward"){
+					nextPage();
+				}
+				if(command=="back"){
+					previousPage();
+				}
+
+        if(command=='s') {
+          simulateKeyPress(83);
+        }
+
+        if(command=='e') {
+          simulateKeyPress(69);
+        }
+
+        if(command[0] == '>') {
+          current = parseInt(command.split('>')[1]) - 1;
+          nextPage();
+        }
+			});
+		</script>
+		<!-- Do not edit under this line -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="generate/commands.js"></script>
+    <script src="presentation.js"></script>
+    <script src="make_slides.js"></script>
+    <script src="generate/word_game.js"></script>
+    <script src="generate/www_game.js"></script>
+    <script src="generate/universal_game.js"></script>
+    <script src="generate/pic_game.js"></script>
+		<script src="js/engine.js"></script>
+	</body>
+</html>

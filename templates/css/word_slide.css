@@ -1,0 +1,7 @@
+div.slide--word__word {
+  width: 100%;
+  text-align: center;
+  border-left: 0;
+  border-right: 0;
+  margin: var(--font-l) 0;
+}

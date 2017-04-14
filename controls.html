@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+  <style>
+    body {
+      height: 100vh;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+    button {
+      height: 25%;
+      width: 100%;
+      margin: 0;
+      font-size: 80px;
+      border: 0;
+      padding: 0;
+    }
+    input, button {
+      display: block;
+    }
+    .row {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      height: 25%;
+    }
+
+    .row * {
+      width: 50%;
+      height: 100%;
+    }
+
+    #current {
+      height: 100%%;
+      margin: 0;
+      font-size: 80px;
+      border: 0;
+      padding: 0
+    }
+  </style>
+	<button onclick="forward()">></button>
+
+  <div class="row">
+    <button onclick="e()">e</button>
+    <button onclick="s()">s</button>
+  </div>
+
+  <div class="row">
+    <input id='current'>
+    <button onclick="gotos()">go</button>
+  </div>
+	<button onclick="back()"><</button>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+	<script>
+		var socket = io();
+		function forward(){
+			socket.emit("action","forward");
+		}
+		function back(){
+			socket.emit("action","back");
+		}
+    function e() {
+      socket.emit("action","e");
+    }
+    function s() {
+      socket.emit("action","s");
+    }
+    function gotos() {
+      var target = document.getElementById('current').value;
+      socket.emit("action",">"+target);
+    }
+	</script>
+</body>
+</html>

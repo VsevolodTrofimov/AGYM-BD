@@ -1,0 +1,43 @@
+.slide--www__table div{
+  transition: .5s;
+}
+
+.slide--www__table .head {
+  font-size: var(--font-m);
+}
+
+.slide--www__table td:not(.head) {
+  width: 100px;
+  text-align: center;
+  font-size: var(--font-m);
+  border: 4px solid var(--accent-color);
+  border-radius: 100px;
+  cursor: pointer;
+  transition: .2s;
+}
+
+.slide--www__table td:not(.head):hover {
+  background: var(--accent-color);
+}
+
+.slide--www__question__question {
+  font-size: calc(var(--font-m) - 12px);
+  margin: var(--font-m);
+}
+
+.slide--www__question {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  display: none;
+}
+
+.slide--www__question__answer {
+  font-size: var(--font-m) !important;
+  transition: .5s;
+  background: var(--accent-color);
+  border-radius: 100px;
+  text-align: center;
+  max-width: calc(100% - var(--font-m));
+}
